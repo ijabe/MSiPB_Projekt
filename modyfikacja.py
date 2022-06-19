@@ -13,7 +13,7 @@ t = np.linspace(0, 110, num=1000)
 #ustawienie pararmetrów
 alpha = 1.1  # współczynnik
 beta = 0.4
-delta = 0.1
+delta = 1
 gamma = 0.4
 K = 100  # model z ograniczoną pojemnością środowiska dla ofiar
 
@@ -59,6 +59,7 @@ print('Minimalna liczba ofiar:', mino)
 print('Maksymalna liczba drapieżników:', maxd)
 print('Minimalna liczba drapieżników:', mind)
 print('Czas odnowienia populacji', roznicat)
+maxt = max(wszystko['czas'])
 # czas odnawiania populacji
 plt.plot(wszystko['czas'], wszystko['ofiary'], color="#6CABCD")
 plt.plot(wszystko['czas'], wszystko['drapiezniki'], color="#B2CD6C")
@@ -69,7 +70,7 @@ plt.autoscale(enable=True, axis='x', tight=True)
 plt.xlabel('Czas')
 plt.ylabel('Liczebność populacji [tys.]')
 plt.legend(['Ofiary', 'Drapieżniki'], loc='upper right')
-plt.title('alpha='+str(alpha))
+plt.title('delta='+str(delta))
 plt.show()
 # przebieg czasowy
 plt.plot(wszystko['czas'], wszystko['ofiary'], color="#6CABCD")
@@ -78,8 +79,8 @@ plt.plot(wszystko['czas'], wszystko['drapiezniki'], color="#B2CD6C")
 plt.autoscale(enable=True, axis='x', tight=True)
 plt.xlabel('Czas')
 plt.ylabel('Liczebność populacji [tys.]')
-plt.legend(['Ofiary', 'Drapieżniki'])
-plt.title('alpha='+str(alpha))
+plt.legend(['Ofiary', 'Drapieżniki'], loc='upper right')
+plt.title('delta='+str(delta))
 plt.show()
 # portret fazowy
 N1 = 0
@@ -91,10 +92,10 @@ P3 = (alpha/beta) * (1 - (gamma/(delta * K)))
 # plt.plot(N1, P1, 'o', color='#F04BC5')
 # plt.plot(N2, P2, 'o', color='#A0F04B')
 plt.plot(N3, P3, 'o', color='#FFC300')
-plt.plot(yode[:, 0], yode[:, 1], color="#4BF0E6")
+plt.plot(yode[:, 0], yode[:, 1], color="#6CABCD")
 plt.xlabel('Drapieżniki')
 plt.ylabel('Ofiary')
-plt.title('alpha='+str(alpha))
+plt.title('delta='+str(delta))
 # plt.legend(['Punkt stacjonarny niestabilny', 'Punkt stacjonarny stabilny'], loc='upper right')
 plt.show()
 
