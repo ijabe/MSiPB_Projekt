@@ -39,7 +39,7 @@ def sim(variables, t, params):
 
 yode = odeint(sim, y0, t, args=(params,))
 
-############# IZZZZZZZZZZZZZZZZZZZZA ####################
+
 t = t.reshape(1, 1000)
 wszystko = np.concatenate((yode, t.T), axis=1)
 wszystko = pandas.DataFrame(wszystko, columns=['ofiary', 'drapiezniki', 'czas'])
@@ -101,13 +101,3 @@ plt.show()
 
 
 
-#stabilnośc modelu przeanalizować
-#portret fazowy sie zamknie
-#przeanalizowac dzialanie odelu dla zmieniajacych sie wspolczynnikow alfa, gamma, beta...
-#Model drapieżnik-ofiara - Model volterra lotki z modyfikacją....
-#zaimplemetowac roznice miedzy maximum (czas odradzania sie miedzy ofiarami)
-#wyroznic maksima i stworzyc wektor wyników
-#gui?
-#dla jednego wspolczynnika jeszcze klasyczny
-#dla modyfikacji jeszcze wziac pod uwagę punkt stacjonarny i szczególnie dla pojemności (jak wpływają warunki początkowe)
-#stałe parametryu i zmieniamy pojemnośc środowiska

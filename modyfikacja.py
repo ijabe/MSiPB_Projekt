@@ -41,7 +41,7 @@ def sim(variables, t, params):
 
 yode = odeint(sim, y0, t, args=(params,))
 
-############# IZZZZZZZZZZZZZZZZZZZZA ####################
+
 t = t.reshape(1, 1000)
 wszystko = np.concatenate((yode, t.T), axis=1)
 wszystko = pandas.DataFrame(wszystko, columns=['ofiary', 'drapiezniki', 'czas'])
